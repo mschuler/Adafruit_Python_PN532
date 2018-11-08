@@ -21,6 +21,7 @@
 # SOFTWARE.
 import binascii
 import sys
+import time
 
 import Adafruit_PN532 as PN532
 
@@ -57,6 +58,7 @@ pn532.SAM_configuration()
 # Main loop to detect cards and read a block.
 print('Waiting for MiFare card...')
 while True:
+    time.sleep(0.1)
     # Check if a card is available to read.
     uid = pn532.read_passive_target()
     # Try again if no card is available.
